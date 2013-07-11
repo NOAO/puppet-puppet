@@ -1,3 +1,5 @@
 class puppet::agent {
-  include puppet::agent::install, puppet::agent::service, puppet::agent::config
+  Class[puppet::agent::install] ->
+  Class[puppet::agent::service] ->
+  Class[puppet::agent::config]
 }

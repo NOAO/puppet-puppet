@@ -1,3 +1,4 @@
 class puppet::master {
-  include puppet::master::install, puppet::master::config
+  Class[puppet::master::install] ->
+  Class[ puppet::master::config]
 }

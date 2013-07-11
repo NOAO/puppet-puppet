@@ -1,7 +1,6 @@
-class puppet::master::service {
-  include puppet::params
+class puppet::master::service inherits puppet::params {
 
-  service { $puppet::params::puppet_master_service_name:
+  service { $puppet_master_service_name:
     enable      => true,
     ensure      => running,
     hasrestart  => true,

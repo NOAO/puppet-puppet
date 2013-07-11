@@ -1,6 +1,6 @@
-class puppet::master::config {
+class puppet::master::config inherits puppet::params {
   concat::fragment{ 'master':
-    target  => $::puppet::params::puppet_conf_file,
+    target  => $puppet_conf_file,
     content => template("puppet/master.conf.erb"),
     order   => 2,
   }

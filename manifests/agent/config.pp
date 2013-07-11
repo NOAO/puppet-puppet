@@ -1,6 +1,4 @@
-class puppet::agent::config {
-  $require = Class['puppet::agent::install']
-
+class puppet::agent::config inherits puppet::params {
   # 0.25 does not support elsif so we're just doing this test 3 times
   if versioncmp('2.6.0', $puppetversion) > 0 {
     $confver = '0.25'
@@ -19,7 +17,7 @@ class puppet::agent::config {
   }
 
   concat::fragment{ 'agent':
-    target  => $::puppet::params::puppet_conf_file,
+    target  => $puppet_conf_file,
     content => template("puppet/puppet.conf.erb"),
     order   => 1,
   }
