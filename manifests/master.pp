@@ -1,4 +1,4 @@
 class puppet::master {
-  Class[puppet::master::install] ->
-  Class[ puppet::master::config]
+  class{'puppet::master::install': } ->
+  class{'puppet::master::config': }
 }

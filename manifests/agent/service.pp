@@ -5,7 +5,6 @@ class puppet::agent::service inherits puppet::params {
     enable      => true,
     hasrestart  => true,
     hasstatus   => true,
-    require     => Class['puppet::agent::config'],
     subscribe   => Class['puppet::agent::config'],
   }
 }

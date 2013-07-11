@@ -1,5 +1,5 @@
 class puppet::agent {
-  Class[puppet::agent::install] ->
-  Class[puppet::agent::service] ->
-  Class[puppet::agent::config]
+  class{'puppet::agent::install': } ->
+  class{'puppet::agent::config': } ->
+  class{'puppet::agent::service': } 
 }
