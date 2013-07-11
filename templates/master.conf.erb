@@ -1,0 +1,14 @@
+[master]
+storeconfigs=true
+thin_storeconfigs=true
+reports = log, foreman
+dbadapter=mysql
+dbuser=puppet
+dbpassword=ctrlroot
+dbserver=localhost
+dbsocket=/var/lib/mysql/mysql.sock
+node_terminus = exec
+external_nodes = /etc/puppet/node.rb
+modulepath = $confdir/environments/$environment/modules:$confdir/modules
+
+[dev]
