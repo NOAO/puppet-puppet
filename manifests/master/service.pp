@@ -1,8 +1,8 @@
 class puppet::master::service inherits puppet::params {
 
   service { $puppet_master_service_name:
-    enable      => true,
     ensure      => running,
+    enable      => true,
     hasrestart  => true,
     hasstatus   => true,
     require     => Class['puppet::master::config'],

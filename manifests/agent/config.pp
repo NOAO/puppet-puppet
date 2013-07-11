@@ -18,12 +18,12 @@ class puppet::agent::config inherits puppet::params {
 
   concat::fragment{ 'agent':
     target  => $puppet_conf_file,
-    content => template("puppet/puppet.conf.erb"),
+    content => template('puppet/puppet.conf.erb'),
     order   => 1,
   }
   file { '/etc/puppet/auth.conf':
     ensure  => present,
-    source  => "puppet:///modules/puppet/$confver/auth.conf",
+    source  => "puppet:///modules/puppet/${confver}/auth.conf",
   }
   if $confver == '2.6' {
     # 2.6 seems to need this file to exist, even if it's empty
@@ -35,15 +35,15 @@ class puppet::agent::config inherits puppet::params {
     # 2.6 seems to need this file to exist, even if it's empty
     file { '/etc/puppet/namespaceauth.conf':
       ensure  => present,
-    source  => "puppet:///modules/puppet/$confver/namespaceauth.conf",
+      source  => "puppet:///modules/puppet/${confver}/namespaceauth.conf",
     }
   }
 
-  cron { puppet_sweep_clientbucket:
+  cron { 'puppet_sweep_clientbucket':
     # el5.x does not have /bin/find
-    command => "/usr/bin/ionice -c3 /usr/bin/find /var/lib/puppet/clientbucket -type f -mtime 365 -delete",
+    command => '/usr/bin/ionice -c3 /usr/bin/find /var/lib/puppet/clientbucket -type f -mtime 365 -delete',
     user    => root,
-    hour    => "12",
+    hour    => '12',
     minute  => fqdn_rand(59),
   }
 }
