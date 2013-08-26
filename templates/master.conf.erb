@@ -11,6 +11,6 @@
     external_nodes    = /etc/puppet/node.rb
     node_terminus     = exec
     ca                = true
-    environment       = production
-    manifest          = $confdir/environments/$environment/manifests/site.pp
-    modulepath        = $confdir/environments/$environment/modules
+    environment       = prod
+    manifest          = $confdir/env/$environment/manifests/site.pp
+    modulepath        = $confdir/env/$environment/modules
