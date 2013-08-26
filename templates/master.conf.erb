@@ -1,20 +1,16 @@
 [master]
-    storeconfigs    = true
+    storeconfigs      = true
     thin_storeconfigs = true
-    dbadapter       = mysql
-    dbuser          = puppet
-    dbpassword      = ctrlroot
-    dbserver        = localhost
-    dbsocket        = /var/lib/mysql/mysql.sock
-    autosign        = $confdir/autosign.conf { mode = 664 }
-    reports         = foreman, log
-    external_nodes  = /etc/puppet/node.rb
-    node_terminus   = exec
-    ca              = true
-
-[dev]
-    modulepath      = /etc/puppet/env/dev/modules
-
-[production]
-    modulepath      = /etc/puppet/env/prod/modules
-
+    dbadapter         = mysql
+    dbuser            = puppet
+    dbpassword        = ctrlroot
+    dbserver          = localhost
+    dbsocket          = /var/lib/mysql/mysql.sock
+    autosign          = $confdir/autosign.conf { mode = 664 }
+    reports           = foreman, log
+    external_nodes    = /etc/puppet/node.rb
+    node_terminus     = exec
+    ca                = true
+    environment       = production
+    manifest          = $confdir/environments/$environment/manifests/site.pp
+    modulepath        = $confdir/environments/$environment/modules
