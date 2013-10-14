@@ -21,9 +21,9 @@
     report          = true
     ignoreschedules = true
     daemon          = false
-    certname        = <%= fqdn %>
+    certname        = <%= @fqdn %>
     environment     = production
-    server          = <%= servername %>
+    server          = <%= @servername %>
     listen          = true
     configtimeout   = 900
 
