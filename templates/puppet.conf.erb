@@ -1,29 +1,21 @@
 [main]
-    vardir          = /var/lib/puppet
-    logdir          = /var/log/puppet
-    rundir          = /var/run/puppet
-    ssldir          = $vardir/ssl
-    pluginsync      = true
-    splay           = true
-    pluginsource    = puppet://$server/plugins
-    environments    = production
+vardir = /var/lib/puppet
+logdir = /var/log/puppet
+rundir = /var/run/puppet
+ssldir = $vardir/ssl
+pluginsync = true
 
-    # Allow services in the 'puppet' group to access key (Foreman + proxy)
-    privatekeydir   = $ssldir/private_keys { group = service }
-    hostprivkey     = $privatekeydir/$certname.pem { mode = 640 }
+pluginsource = puppet://$server/plugins
+environments = production
 
-    # Puppet 3.0.x requires this in both [main] and [master] - harmless on
-    # agents
-    autosign        = $confdir/autosign.conf { mode = 664 }
 
 [agent]
-    splay           = true
-    report          = true
-    ignoreschedules = true
-    daemon          = false
-    certname        = <%= @fqdn %>
-    environment     = production
-    server          = <%= @servername %>
-    listen          = true
-    configtimeout   = 900
+splay           = true
+report          = true
+ignoreschedules = true
+daemon          = false
+certname        = <%= @fqdn %>
+environment     = production
+server          = <%= @servername %>
+configtimeout   = 900
 
