@@ -1,3 +1,10 @@
+.bundle
+Gemfile.lock
+*.orig
+*.patch
 pkg/
-spec/fixtures/
-*.lock
+*.rej
+spec/fixtures/manifests/
+spec/fixtures/modules/
+*.swp
+.vagrant
