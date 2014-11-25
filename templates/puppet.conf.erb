@@ -4,6 +4,8 @@ logdir = /var/log/puppet
 rundir = /var/run/puppet
 ssldir = $vardir/ssl
 pluginsync = true
+# enable 3.x structured facts; will be removed in 4.x
+stringify_facts = false
 
 pluginsource = puppet://$server/plugins
 environments = production
