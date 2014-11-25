@@ -1,6 +1,6 @@
-class puppet::agent::install inherits puppet::params {
+class puppet::agent::install {
 
-  package { $puppet_agent_package_name:
+  package { $::puppet::agent::puppet_agent_package_name:
     ensure => present,
   }
 }

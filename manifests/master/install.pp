@@ -1,7 +1,7 @@
-class puppet::master::install inherits puppet::params {
+class puppet::master::install {
 
-  if $puppet_master_package_name {
-    package { $puppet_master_package_name:
+  if $::puppet::master::puppet_master_package_name {
+    package { $p::puppet::master::uppet_master_package_name:
       ensure => present,
     }
   }
