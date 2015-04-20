@@ -16,7 +16,7 @@ splay           = true
 report          = true
 ignoreschedules = true
 daemon          = false
-certname        = <%= @fqdn %>
+certname        = <%= @fqdn.downcase %>
 environment     = <%= @environment or 'production' %>
 server          = <%= @servername %>
 configtimeout   = 900
